@@ -44,7 +44,7 @@ def gcash_form(request):
             comtext = {
                 'abbr': gcname[0] + gcname.split()[-1].upper(),
                 'gcname': gcname,
-                'gnumber': gnumber[:3] + " " + gnumber[4:7] + " " + gnumber[7:10] + " " + gnumber[10:],
+                'gnumber': gnumber[:3] + " " + gnumber[3:6] + " " + gnumber[6:9] + " " + gnumber[9:],
                 'balance': balance,
                 'amount': amount,
             }
@@ -84,7 +84,7 @@ def screenshot(request):
 
     data = {
         'gcname': gcname,
-        'gnumber': gnumber[:3] + " " + gnumber[4:7] + " " + gnumber[7:10] + " " + gnumber[10:],
+        'gnumber': gnumber[:3] + " " + gnumber[3:6] + " " + gnumber[6:9] + " " + gnumber[9:],
         'balance': balance,
         'amount': amount,
     }
