@@ -1,0 +1,200 @@
+   /* Common nav style */
+   body {
+      font-size: 15pt;
+      background-color: #0000FE;
+   }
+
+   /* css style */
+   .header {
+      display: flex;
+      justify-content: center;
+      color: #FFFFFF;
+   }
+
+   .container {
+      background-color: #FFFFFF;
+      height: 28em;
+      border-radius: 20px;
+      margin: 10px;
+      position: relative;
+      top: 2em;
+   }
+
+   .container::before {
+      position: absolute;
+      content: '';
+      background: linear-gradient(-50deg, #0000FE 12px, transparent 0),
+         linear-gradient(50deg, #0000FE 12px, transparent 0);
+      background-repeat: repeat-x;
+      background-size: 15px;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+   }
+
+   .inner {
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      bottom: 1.1em;
+   }
+
+   /* Details of payment slip/ name */
+
+   .details {
+      display: flex;
+      justify-content: center;
+      color: #123587;
+      position: relative;
+      bottom: 10px;
+   }
+
+   .name>p {
+      font-family: "Almarai", serif;
+      font-weight: 700;
+      font-size: 22px;
+      font-style: normal;
+   }
+
+   /* Details of payment slip/ number */
+
+   .number p {
+      background-color: #EAF0FF;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      width: fit-content;
+      align-items: center;
+      margin: auto;
+      border-radius: 20px;
+      color: #13367A;
+      position: relative;
+      padding: 0 8px 0;
+      bottom: 20px;
+   }
+
+   .column {
+      font-family: "Geist", serif;
+      font-weight: 700;
+      font-size: 19px;
+   }
+
+   .sent {
+      display: flex;
+      justify-content: center;
+      opacity: 0.4;
+      margin: -15px;
+      position: relative;
+      bottom: 15px;
+   }
+
+   .sent p {
+      font-family: "Poppins", serif;
+      font-weight: 500;
+      font-size: 15px;
+   }
+
+   .pricing {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      padding: 20px 5px 20px;
+      ;
+      margin: 0 17px 0 17px;
+      font-family: "Work Sans", serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #0A2A53;
+   }
+
+   /* for re-editing */
+
+   .money {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 15px;
+      font-family: "Work Sans", serif;
+      padding: 0 16px 0 15px;
+      font-weight: 600;
+      color: #0A2A53;
+   }
+
+   .mid {
+      font-family: "Work Sans", serif;
+      font-weight: 600;
+      font-size: 26px;
+      margin-bottom: 35px;
+      position: relative;
+      top: 15px;
+   }
+
+   .word {
+      position: relative;
+      bottom: 2px;
+   }
+
+   /* Font for redesign*/
+   .font {
+      font-family: "Unbounded", serif;
+      font-size: 22px;
+      font-weight: 450;
+      position: relative;
+      bottom: 1px;
+      left: 5px;
+   }
+
+   .footer {
+      background-color: #F5F8FF;
+      height: 250px;
+      font-size: 13.7px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      padding: 0 15px 0 15px;
+      color: #0A2A53;
+   }
+
+   .date {
+      font-family: "42dot Sans", serif;
+      font-weight: 800;
+      position: relative;
+      bottom: 0.3px;
+   }
+
+   .reff span {
+      opacity: 0.5;
+      font-family: "42dot Sans", serif;
+      font-weight: 800;
+   }
+
+   .bar {
+      position: absolute;
+      bottom: 5px;
+      background-color: #fff;
+      margin: 5px 0 0 80px;
+      height: 4px;
+      align-items: center;
+      border-radius: 80px;
+   }
+
+   .bar-2 {
+      position: relative;
+      bottom: 6px;
+      color: #fff;
+   }
+
+   .reff p {
+      font-family: "42dot Sans", serif;
+      font-weight: 800;
+   }
+
+   @media (max-width: 390px) {
+      .footer {
+         font-size: 12px;
+      }
+   }

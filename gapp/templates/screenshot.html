@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <title>Gcash UI</title>
+
+   <!-- HTML -->
+
+
+   <!-- Custom Styles -->
+
+   {% load humanize%}
+
+   {% load static%}
+
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+   <script src="https://kit.fontawesome.com/e0a5910ad7.js" crossorigin="anonymous"></script>
+
+   <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet">
+
+   <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Liter&family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet">
+
+   <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Liter&family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet">
+
+   <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Liter&family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+
+   <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Liter&family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Unbounded:wght@200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+
+   <link
+      href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Almarai:wght@300;400;700;800&family=Liter&family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Unbounded:wght@200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+
+   <link
+      href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Almarai:wght@300;400;700;800&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Geist:wght@100..900&family=Liter&family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Unbounded:wght@200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+
+
+
+
+
+
+</head>
+
+<body>
+   <div class="container">
+      <div class="inner">
+         <i class="fa-solid fa-check"
+            style="color: #FFFFFF; border: 3px solid #FFFFFF; border-radius: 50%; padding: 11px 12px 11px 12px; background-color: #0157E2; "></i>
+      </div>
+
+
+      <!-- Name of the user Gcash -->
+
+      <div class="details">
+         <div class="name">
+            <p>{{gcname}}</p>
+         </div>
+      </div>
+      <!-- Gcash number details -->
+
+      <div class="number">
+         <div class="column">
+            <p>{{gnumber}}</p>
+         </div>
+      </div>
+      <div class="sent">
+         <p>Sent via GCash</p>
+      </div>
+
+
+      <!-- Details for Amount -->
+      <div class="pricing">
+         <div class="tag">
+            Amount
+         </div>
+         <div class="amount">
+            {{amount | intcomma}}
+         </div>
+      </div>
+
+      <div class="money">
+         <div class="word">
+            Total Amount Sent
+         </div>
+
+         <div class="mid">
+            <span class="font">₱</span>
+            {{amount | intcomma}}
+         </div>
+      </div>
+
+
+      <div class="footer">
+         <div class="reff">
+            <p>
+               <span>Ref No.</span> {{reff}}
+            </p>
+         </div>
+
+         <!-- footer for Date and Time -->
+
+         <div class="date">
+            <p>{{ timestamp|date:"M j, Y g:i A" }}</p>
+         </div>
+      </div>
+
+      <div class="bottom">
+         <img src="{% static 'images/pics.jpg' %}" alt="logo" style="
+               
+                   width: 95%;
+                  height: 130px;
+                  position: absolute;
+                  top: 19em;
+                  right: 10px;
+               ">
+      </div>
+   </div>
+
+</body>
+
+</html>
