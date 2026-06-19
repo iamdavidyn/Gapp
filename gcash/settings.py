@@ -116,7 +116,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 STATICFILES_DIRS = [
-    BASE_DIR / 'gapp' / 'static/',
+    BASE_DIR / 'Gapp' / 'static/',
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
