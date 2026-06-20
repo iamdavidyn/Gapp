@@ -38,7 +38,9 @@ def gcash_form(request):
 
             gcname = ' '.join(masked_parts)
 
+            balance = Decimal(balance).quantize(Decimal('0.00'))
 
+            amount = Decimal(amount).quantize(Decimal('0.00'))
         #abbrivate of the name
             
             comtext = {
@@ -81,7 +83,9 @@ def screenshot(request):
         masked_parts.append(masked)
 
     gcname = ' '.join(masked_parts)
+    balance = Decimal(balance).quantize(Decimal('0.00'))
 
+    amount = Decimal(amount).quantize(Decimal('0.00'))
     data = {
         'gcname': gcname,
         'gnumber': gnumber[:3] + " " + gnumber[3:6] + " " + gnumber[6:9] + " " + gnumber[9:],
