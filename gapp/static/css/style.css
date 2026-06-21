@@ -52,10 +52,9 @@
    }
 
    .name>p {
-      font-family: "Almarai", serif;
-      font-weight: 700;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
       font-size: 22px;
-      font-style: normal;
    }
 
    /* Details of payment slip/ number */
