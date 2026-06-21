@@ -52,10 +52,9 @@
    }
 
    .name>p {
-      font-family: "Almarai", serif;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 23px;
       font-weight: 700;
-      font-size: 22px;
-      font-style: normal;
    }
 
    /* Details of payment slip/ number */
@@ -68,10 +67,10 @@
       width: fit-content;
       align-items: center;
       margin: auto;
-      border-radius: 20px;
+      border-radius: 15px;
       color: #13367A;
       position: relative;
-      padding: 0 8px 0;
+      padding: 5px 10px 5px 10px;
       bottom: 20px;
    }
 
@@ -127,7 +126,7 @@
    .mid {
       font-family: "Work Sans", serif;
       font-weight: 600;
-      font-size: 26px;
+      font-size: 23px;
       margin-bottom: 35px;
       position: relative;
       top: 15px;
@@ -141,16 +140,16 @@
    /* Font for redesign*/
    .font {
       font-family: "Unbounded", serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 450;
       position: relative;
-      bottom: 1px;
+      bottom: 0.5pt;
       left: 5px;
    }
 
    .footer {
       background-color: #F5F8FF;
-      height: 250px;
+      height: 240px;
       font-size: 13.7px;
       display: flex;
       justify-content: space-between;
@@ -162,8 +161,6 @@
    .date {
       font-family: "42dot Sans", serif;
       font-weight: 800;
-      position: relative;
-      bottom: 0.3px;
    }
 
    .reff span {
@@ -198,3 +195,96 @@
          font-size: 12px;
       }
    }
+
+
+
+
+
+
+
+   .carbon-card {
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      bottom: 150px;
+      background: #9CE9C7;
+      border-radius: 8px;
+      margin: 20px;
+      box-sizing: border-box;
+   }
+
+   .carbon-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 8px;
+      height: 100%;
+      background: #12c98c;
+      border-radius: 8px 0 0 8px;
+   }
+
+   .carbon-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+   }
+
+   .carbon-copy {
+      color: #1c5f4e;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 700;
+      padding-top: 12px;
+   }
+
+   .carbon-value {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0d6b50;
+   }
+
+   .carbon-unit {
+      font-size: 11px;
+      font-weight: 600;
+      color: #2f5f50;
+   }
+
+   .message {
+      color: #1c5f4e;
+      font-size: 10px;
+      line-height: 1.6;
+      font-weight: 700;
+      padding: 0 16px 5px 25px;
+   }
+
+   .message p {
+      margin-top: 5px;
+   }
+
+
+   .value {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      margin-top: 2px;
+   }
+
+   .value .number {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0d6b50;
+   }
+
+   .value .unit {
+      font-size: 11px;
+      font-weight: 600;
+      color: #2f5f50;
+   }
+
+   .card-header {
+      display: flex;
+      justify-content: flex-start;
+      padding: 20px 0 0 10px;
+   }
+
+   @media (max-width: 368px) {}

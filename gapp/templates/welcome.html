@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Welcome</title>
+   <style>
+      body {
+         margin: 0;
+         min-height: 100vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background: radial-gradient(circle at top left, #1a72fa 0%, transparent 40%),
+                     radial-gradient(circle at bottom right, #58d68d 0%, transparent 35%),
+                     #eef7ff;
+         font-family: Inter, system-ui, sans-serif;
+         color: #0f315c;
+      }
+
+      .welcome-card {
+         width: min(560px, 92%);
+         background: rgba(255, 255, 255, 0.96);
+         border-radius: 28px;
+         box-shadow: 0 30px 80px rgba(15, 49, 92, 0.12);
+         overflow: hidden;
+         padding: 3rem 2.5rem;
+         text-align: center;
+         animation: fadeInUp 0.9s ease both;
+      }
+
+      .welcome-badge {
+         display: inline-flex;
+         align-items: center;
+         gap: 0.75rem;
+         background: rgba(26, 114, 250, 0.12);
+         color: #124f8b;
+         padding: 0.75rem 1rem;
+         border-radius: 999px;
+         font-size: 0.95rem;
+         font-weight: 700;
+         margin-bottom: 1.25rem;
+         animation: popIn 1s ease both;
+      }
+
+      .welcome-title {
+         font-size: clamp(2rem, 4vw, 3rem);
+         line-height: 1.05;
+         margin: 0 0 1rem;
+         letter-spacing: -0.03em;
+      }
+
+      .welcome-copy {
+         max-width: 42rem;
+         margin: 0 auto 2rem;
+         color: #445d7a;
+         font-size: 1rem;
+         line-height: 1.9;
+      }
+
+      .welcome-buttons {
+         display: flex;
+         justify-content: center;
+         gap: 1rem;
+         flex-wrap: wrap;
+      }
+
+      .welcome-link,
+      .welcome-secondary {
+         border: none;
+         border-radius: 999px;
+         padding: 0.95rem 1.75rem;
+         font-size: 0.95rem;
+         font-weight: 700;
+         cursor: pointer;
+         text-decoration: none;
+         transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .welcome-link {
+         background: #1a72fa;
+         color: #fff;
+         box-shadow: 0 18px 40px rgba(26, 114, 250, 0.18);
+      }
+
+      .welcome-link:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 22px 48px rgba(26, 114, 250, 0.24);
+      }
+
+      .welcome-secondary {
+         background: transparent;
+         color: #1a72fa;
+         border: 1px solid rgba(26, 114, 250, 0.25);
+      }
+
+      .welcome-secondary:hover {
+         background: rgba(26, 114, 250, 0.06);
+      }
+
+      @keyframes fadeInUp {
+         from { opacity: 0; transform: translateY(30px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes popIn {
+         from { opacity: 0; transform: scale(0.9); }
+         to { opacity: 1; transform: scale(1); }
+      }
+
+      
+        .message {
+            padding: 14px 16px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .message.error {
+            background: rgba(49, 5, 5, 0.16);
+            color: #cf0404;
+            margin-top: 20px;
+            border: 1px solid rgba(190, 0, 0, 0.25);
+        }
+
+        .message.success {
+            background: rgba(39, 161, 23, 0.16);
+            color: #5af199;
+            margin-top: 20px;
+            border: 1px solid rgba(48, 172, 58, 0.966);
+        }
+
+   </style>
+</head>
+<body>
+
+   <article class="welcome-card">
+      <div class="welcome-badge">Welcome to GCash Express</div>
+
+         {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                            <div class="message {{ message.tags }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+      <h1 class="welcome-title">Fast, safe, and glowing with energy.</h1>
+      <p class="welcome-copy">Start your digital transaction journey with a warm welcome animation. Tap the button below to continue to the GCash send form or view the screenshot page.</p>
+      <div class="welcome-buttons">
+         <a href="gcform/" class="welcome-link">Go to Send Form</a>
+         <a href="screenshot/" class="welcome-secondary">View Recent Screenshot</a>
+      </div>
+   </article>
+</body>
+</html>
