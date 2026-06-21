@@ -42,13 +42,8 @@ def gcash_form(request):
             gcname = ' '.join(masked_parts)
 
             balance = Decimal(balance).quantize(Decimal('0.00'))
-
-            amount = Decimal(amount).quantize(Decimal('0.00'))
         #abbrivate of the name
 
-        
-           
-            balance = Decimal(balance).quantize(Decimal('0.00'))
 
             amount = Decimal(amount).quantize(Decimal('0.00'))
 
@@ -100,14 +95,8 @@ def screenshot(request):
     gcname = ' '.join(masked_parts)
     balance = Decimal(balance).quantize(Decimal('0.00'))
 
-<<<<<<< HEAD
-    balance = Decimal(balance).quantize(Decimal('0.00'))
     
     amount = Decimal(amount).quantize(Decimal('0.00'))
-    
-=======
-    amount = Decimal(amount).quantize(Decimal('0.00'))
->>>>>>> 104b0fd18b5d08857b6bd1ea39cb21ce7e20470a
     data = {
         'gcname': gcname,
         'gnumber': gnumber[:3] + " " + gnumber[3:6] + " " + gnumber[6:9] + " " + gnumber[9:],
@@ -130,10 +119,7 @@ def screenshot(request):
     data['reff'] = ' '.join(chunks)
 
     return render(request, 'screenshot.html', data)
-<<<<<<< HEAD
 
 
 def welcome(request):
     return render(request, 'welcome.html')
-=======
->>>>>>> 104b0fd18b5d08857b6bd1ea39cb21ce7e20470a
