@@ -52,9 +52,19 @@
    }
 
    .name>p {
+<<<<<<< HEAD
       font-family: "Noto Sans JP", sans-serif;
       font-size: 23px;
       font-weight: 700;
+=======
+       font-family: "Noto Sans JP", sans-serif;
+       font-size: 23px;
+       font-weight: 700;
+       font-family: "Almarai", serif;
+       font-weight: 700;
+       font-size: 22px;
+       font-style: normal;
+>>>>>>> 32bccbfb96fcc97b2339294342c8f95efc2db673
    }
 
    /* Details of payment slip/ number */
@@ -127,6 +137,10 @@
       font-family: "Work Sans", serif;
       font-weight: 600;
       font-size: 23px;
+<<<<<<< HEAD
+=======
+      font-size: 24px;
+>>>>>>> 32bccbfb96fcc97b2339294342c8f95efc2db673
       margin-bottom: 35px;
       position: relative;
       top: 15px;
@@ -286,5 +300,8 @@
       justify-content: flex-start;
       padding: 20px 0 0 10px;
    }
+<<<<<<< HEAD
 
    @media (max-width: 368px) {}
+=======
+>>>>>>> 32bccbfb96fcc97b2339294342c8f95efc2db673
