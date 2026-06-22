@@ -20,6 +20,8 @@ from gapp import views
 
 urlpatterns = [
     path('gcform/', views.gcash_form, name='gcash_form'),
+    path('slip/', views.slip, name='slip'),
     path('screenshot/', views.screenshot, name='screenshot'),
+    path('select/', views.select_page, name='select_page'),
     path('', views.welcome, name='welcome'),
 ]
