@@ -40,6 +40,10 @@ def signup_view(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
 
+        if len(password) < 6:
+            messages.error(request, 'Password must be at least 6 characters long.')
+            return redirect('signup')
+
         if not username or not password:
             messages.error(request, 'Please enter both username and password.')
             return redirect('signup')
