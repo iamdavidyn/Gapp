@@ -4,7 +4,71 @@ from zoneinfo import ZoneInfo
 import random
 from decimal import Decimal
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from .models import CustomUser
+from django.contrib.sessions.models import Session
 
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            if user.is_approved:
+                if user.session_key:
+                    Session.objects.filter(session_key=user.session_key).delete()
+                login(request, user)
+                user.session_key = request.session.session_key
+                user.save()
+                messages.success(request, 'You have successfully logged in.')
+                return redirect('welcome')
+            else:
+               return redirect('approval')
+        else:
+            messages.error(request, 'Invalid username or password.')
+            return redirect('login')
+        
+    return render(request, 'login.html')
+
+
+def signup_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+
+        if not username or not password:
+            messages.error(request, 'Please enter both username and password.')
+            return redirect('signup')
+        
+        elif password != confirm_password:
+            messages.error(request, 'Passwords do not match.')
+            return redirect('signup')
+        
+        elif CustomUser.objects.filter(username=username).exists():
+            messages.error(request, 'That username is already taken.')
+            return redirect('signup')
+        else:
+            CustomUser.objects.create_user(username=username, password=password, is_approved=False)
+            messages.success(request, 'Account created. Please wait for admin approval.')
+            return redirect('approval')
+
+    return render(request, 'signup.html')
+
+@login_required
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'You have been logged out.')
+    return redirect('welcome')
+
+
+def approval_view(request):
+    return render(request, 'approval.html')
+
+@login_required
 def gcash_form(request):
     if request.method == 'POST':
             # Gets the form data here
@@ -66,7 +130,7 @@ def gcash_form(request):
         return render(request, 'form.html', {'form': gcash_form})
 
 
-
+@login_required
 def screenshot(request):
     # Retrieve the form data from the session
     gcname = request.session.get('gcname')
@@ -123,7 +187,7 @@ def screenshot(request):
     data['reff'] = ' '.join(chunks)
 
     return render(request, 'screenshot.html', data)
-
+@login_required
 def slip(request):
      # Retrieve the form data from the session
         gcname = request.session.get('gcname')
@@ -180,7 +244,7 @@ def slip(request):
         data['reff'] = ' '.join(chunks)
         
         return render(request, 'slip.html', data)
-
+@login_required
 def select_page(request):
     return render(request, 'select.html')
 

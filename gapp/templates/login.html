@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, rgba(26, 114, 250, 0.18), transparent 60%), #f4f9ff;
+      font-family: system-ui, sans-serif;
+      color: #0f315c;
+    }
+
+    .card {
+      width: min(420px, 92%);
+      padding: 2.5rem;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 24px 60px rgba(15, 49, 92, 0.12);
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(1.75rem, 3vw, 2.4rem);
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      margin: 0 0 1.5rem;
+      color: #4d5f7b;
+      line-height: 1.7;
+    }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: #203059;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 0px 15px 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(26, 114, 250, 0.22);
+      background: #f7fbff;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #1a72fa;
+      box-shadow: 0 0 0 4px rgba(26, 114, 250, 0.11);
+    }
+
+    .button {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1a72fa, #0b4ed2);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .link {
+      color: #1a72fa;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .messages {
+      margin-bottom: 1rem;
+    }
+
+    .message {
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .message.error {
+      background: rgba(247, 222, 222, 0.96);
+      color: #b22020;
+      border: 1px solid rgba(220, 60, 60, 0.2);
+    }
+
+    .message.success {
+      background: rgba(218, 247, 226, 0.96);
+      color: #107f35;
+      border: 1px solid rgba(71, 173, 84, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Login</h1>
+    <p>Sign in with your username and password.</p>
+
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" placeholder="Your username" required />
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Your password" required />
+      </div>
+
+      <button type="submit" class="button">Login</button>
+    </form>
+
+    <div class="info-row">
+      <span>Don't have an account?</span>
+      <a href="/signup/" class="link">Create one</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -19,6 +19,11 @@ from django.urls import path
 from gapp import views
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('login/', views.login_view, name='login'),
+    path('signup/', views.signup_view, name='signup'),
+    path('logout/', views.logout_view, name='logout'),
+    path('approval/', views.approval_view, name='approval'),
     path('gcform/', views.gcash_form, name='gcash_form'),
     path('slip/', views.slip, name='slip'),
     path('screenshot/', views.screenshot, name='screenshot'),
