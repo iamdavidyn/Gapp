@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 import datetime
-from .utils import get_slip_data
 from zoneinfo import ZoneInfo
 import random
 from decimal import Decimal
