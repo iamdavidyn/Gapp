@@ -29,4 +29,5 @@ urlpatterns = [
     path('screenshot/', views.screenshot, name='screenshot'),
     path('select/', views.select_page, name='select_page'),
     path('', views.welcome, name='welcome'),
+    path('payment/', views.payment, name='payment'),
 ]

@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^yie%dz^7l_457eym865fhrebdep0)=j9nyx&xyexp+nptv)e$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["gapp-duyc.onrender.com", "127.0.0.1", "localhost"]
 
@@ -81,7 +81,6 @@ AUTH_USER_MODEL = 'gapp.CustomUser'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 if os.getenv("RENDER"):
@@ -97,6 +96,7 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
