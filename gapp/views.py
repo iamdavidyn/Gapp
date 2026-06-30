@@ -248,7 +248,7 @@ def slip(request):
         data['reff'] = ' '.join(chunks)
         
         return render(request, 'slip.html', data)
-
+@login_required
 def payment(request):
     # Retrieve the form data from the session
     gcname = request.session.get('gcname')
@@ -306,6 +306,62 @@ def payment(request):
     
     return render(request, 'gcash.html', data)
 
+def slip_3(request):
+     # Retrieve the form data from the session
+    gcname = request.session.get('gcname')
+    gnumber = request.session.get('gnumber')
+    balance = request.session.get('balance')
+    amount = request.session.get('amount')
+    
+
+    if not gcname or not gnumber or not balance or not amount:
+        messages.error(request, 'Please fill out the form before accessing the screenshot.')
+        return redirect('welcome')
+
+    # Masking the name
+    part = gcname.split()
+    masked_parts = []
+
+    for i, name in enumerate(part):
+        name = name.upper()
+        if i == len(part) - 1:
+            masked = name[0]
+        else:
+            if len(name) <= 3:
+                masked = name[:1] + "•" * (len(name) - 1)
+            else:
+                masked = name[:2] + "•" * (len(name) - 3) + name[-1]
+
+        masked_parts.append(masked)
+
+    gcname = ' '.join(masked_parts)
+
+    balance = Decimal(balance).quantize(Decimal('0.00'))
+    
+    amount = Decimal(amount).quantize(Decimal('0.00'))
+    
+    data = {
+        'gcname': gcname,
+        'gnumber': gnumber[:3] + " " + gnumber[3:6] + " " + gnumber[6:9] + " " + gnumber[9:],
+        'balance': balance,
+        'amount': amount,
+    }
+
+    # Get the current time in the Philippines timezone
+    philipines_time = datetime.datetime.now(ZoneInfo('Asia/Manila'))
+    data['timestamp'] = philipines_time
+
+    # Generate a random reference number in the format "1234 567 890123"
+    chunk_length = [13]
+
+    chunks = []
+    for length in chunk_length:
+        chunk = ''.join(str(random.randint(0, 9)) for _ in range(length))
+        chunks.append(chunk)
+    
+    data['reff'] = ' '.join(chunks)
+    return render(request, 'gslip.html', data)
+
 
 @login_required
 def select_page(request):
@@ -314,3 +370,6 @@ def select_page(request):
 
 def welcome(request):
     return render(request, 'welcome.html')
+
+def wallet(request):
+    return render(request, 'balance.html')
