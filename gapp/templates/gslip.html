@@ -227,8 +227,22 @@
         grid-template-columns: 2fr 0fr;
         gap: 10px;
         border-top: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 25px 0 0px 0;
+        margin: -11px 17px 0 17px;
+        font-family: "Work Sans", serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #0A2A53;
+        position: relative;
+        bottom: 15px;
+    }
+
+    .padala {
+        display: grid;
+        grid-template-columns: 2fr 0fr;
+        gap: 10px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-        padding: 25px 0 40px 0;
+        padding: 15px 0 30px 0;
         margin: -11px 17px 0 17px;
         font-family: "Work Sans", serif;
         font-size: 20px;
@@ -239,13 +253,6 @@
     }
 
     /* for re-editing */
-    .amount {
-        margin-left: 10px;
-    }
-
-    .tag {
-        margin-right: 10px;
-    }
 
     .money {
         display: flex;
@@ -338,11 +345,11 @@
     @media (max-width: 390px) {
         .footer {
             font-size: 13px;
-            height: 280px;
+            height: 325px;
         }
 
         .container {
-            height: 738px;
+            height: 752px;
         }
 
         .container::before {
@@ -459,12 +466,6 @@
         bottom: 63px;
 
     }
-
-    @media (max-width: 360px) {
-        .pricing {
-            font-size: 15px;
-        }
-    }
 </style>
 
 <body>
@@ -520,12 +521,16 @@
                 Subtotal
             </div>
             <div class="amount">
-                {{amount }}
+                {{amount | intcomma}}
             </div>
+        </div>
+
+
+        <div class="padala">
             <div class="tag" style="font-family: 'Dosis', sans-serif; font-weight: 700;">
                 Protektado ang Padala
             </div>
-            <div class="amount" style="position: relative; left: 28px;">
+            <div class="amount">
                 30.00
             </div>
             <div class="tags"
@@ -534,6 +539,11 @@
                 Expect coverage details within 24 hours
             </div>
         </div>
+
+
+
+
+
 
         <div class="money">
             <div class="word">
